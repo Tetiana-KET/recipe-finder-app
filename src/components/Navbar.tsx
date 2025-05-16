@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { navigationList } from '@/consts/navigationList';
+import { NAVIGATION_LIST } from '@/consts/navigationList';
 
 interface NavigationListItem {
   id: string;
@@ -10,7 +10,7 @@ interface NavigationListItem {
 export const NavBar = () => {
   return (
     <nav className="h-full flex justify-between items-center">
-      {navigationList.map((item: NavigationListItem) => (
+      {NAVIGATION_LIST.map((item: NavigationListItem) => (
         <Link
           key={item.id}
           href={item.path}
