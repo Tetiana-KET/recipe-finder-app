@@ -1,3 +1,4 @@
+import { BASE_URL } from '@/consts/baseURL';
 import { RecipesResponse } from '@/models/RecipesResponse';
 
 interface FetchRecipesProps {
@@ -12,7 +13,7 @@ export const fetchRecipes = async ({
   maxReadyTime = '',
 }: FetchRecipesProps): Promise<RecipesResponse> => {
   const response = await fetch(
-    `https://api.spoonacular.com/recipes/complexSearch?query=${encodeURIComponent(query)}&cuisine=${encodeURIComponent(
+    `${BASE_URL}/complexSearch?query=${encodeURIComponent(query)}&cuisine=${encodeURIComponent(
       cuisine,
     )}&maxReadyTime=${encodeURIComponent(maxReadyTime)}&apiKey=${process.env.SPOONACULAR_API_KEY}`,
     { next: { revalidate: 60 } },
